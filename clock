@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        .container
+        {
+            border: 2px solid red;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #clock
+        {
+            border: 3px solid black;
+            display: inline-block;
+            height: 400px;
+            width: 400px;
+            border-radius: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #arm
+        {
+            border: 2px solid gold;
+            display: inline-block;
+            height: 4px;
+            width: 350px;
+            border-top-right-radius: -7px;
+            border-bottom-right-radius: 32px;
+            display: flex;
+            justify-content: center;
+            
+            /* transform: rotate(6deg); */
+        }
+        #point
+        {
+            border: 4px solid red;
+            border-radius: 4986px;
+            width: 0.5px;
+            height: 0.5px;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="clock">
+            <div id="arm">
+                <div id="point">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+    </div>
+    
+    <script>
+        
+        let i=6;
+        setInterval( () => {
+            
+            
+            arm.style.transform=`rotate(${i}deg)`;
+            i=i+6;
+            
+
+        }, 1000);
+
+
+        // setInterval(() => {
+            
+        //     if(b==1)
+        //     {
+        //         let i=1;
+        //         b++
+        //     }
+
+        //     f(6*i);
+            
+        // }, 1000);
+
+        // function f(i)
+        // {
+        //     arm.style.transform='rotate("6*i"deg)';
+        //     console.log(i);
+
+        // }
+
+        // for(let i=1;i<100;i++)
+        // {
+        //     f(6*i);
+        // }
+
+    
+        // let i;
+        // for(i=1;i<100;i++)
+        // {
+        //     arm.style.transform='rotate(6*ideg)';
+
+
+        // }
+    </script>
+</body>
+</html>
