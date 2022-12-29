@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analog Clock</title>
     <style>
+        /* Settings for the Author */
+        .author
+        {
+            border: 3px solid green;
+            height: 80px;
+            margin: 7px;
+            display: flex;
+            justify-content: center;
+            font-weight: bolder;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
         .container
         {
             border: 2px solid red;
@@ -17,6 +31,7 @@
         #clock
         {
             border: 3px solid black;
+            background: white;
             display: inline-block;
             height: 400px;
             width: 400px;
@@ -40,18 +55,89 @@
         }
         #point
         {
-            border: 4px solid red;
+            border: 4px solid black;
             border-radius: 4986px;
             width: 0.5px;
             height: 0.5px;
+        }
+
+        /* Setting for Buttons */
+        .buttonDIV
+        {
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 700px;
+            display: flex;
+            /* border: 2px solid red; */
+            margin-right: 300px;
+            justify-content: space-between;
+            
 
         }
+        #buttonSTART
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            width: 250px;
+            padding: 35px;
+            border-radius: 140px;
+            cursor: pointer;
+            background: #efed27;
+            border: 3px solid yellow;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 60px;
+        }
+        #buttonSTOP
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 110px;
+            width: 110px;
+            padding: 35px;
+            border-radius: 63px;
+            cursor: pointer;
+            background: #ee0808;
+            border: 4px solid #ff2020;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 35px;
+        }
         
+        /* Settings for footer */
+        .footer
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid yellow;
+            margin-top: 5px;
+            height: 40px;
+            background: beige;
+        }
 
     </style>
 </head>
 <body>
+
+    <div class="author">
+
+        <h1>Stop Watch</h1>
+        
+
+    </div>
+
+<!-- ///////////////////////////////////////////////////////////// -->
+
     <div class="container">
+        <div class="buttonDIV">
+
+            <input type="button" value="Start" id="buttonSTART" onclick="startCLOCK()">
+            <input type="button" value="Stop" id="buttonSTOP" onclick="stopCLOCK()">
+
+        </div>
         <div id="clock">
             <div id="arm">
                 <div id="point">
@@ -64,52 +150,47 @@
 
         
     </div>
+
+<!-- ///////////////////////////////////////////////////////////// -->
+
+<div class="footer">
+    <h2>Maintained by Asad Alei. All Rights Reserved</h2>
     
-    <script>
+</div>
+
+<!-- ///////////////////////////////////////////////////////////// -->
+
+<script>
+
+        let seconds=1;
+        let ret=0;
+        function startCLOCK()
+        {
+            clock.style.border="3px solid red";
+            let i=6;
+            seconds=1;
+            ret=setInterval( () => {
+                
+                
+                arm.style.transform=`rotate(${i}deg)`;
+                i=i+6;
+                seconds++;
+                
+                
+            }, 1000);
+        }
+        function stopCLOCK()
+        {
+            clearInterval(ret);
+            arm.style.transform=`rotate(0deg)`;
+            clock.style.border="3px solid Black";
+            alert(`-> ${seconds} Seconds Have Elapsed!`);
+
+        }
+
+
+
         
-        let i=6;
-        setInterval( () => {
-            
-            
-            arm.style.transform=`rotate(${i}deg)`;
-            i=i+6;
-            
-
-        }, 1000);
-
-
-        // setInterval(() => {
-            
-        //     if(b==1)
-        //     {
-        //         let i=1;
-        //         b++
-        //     }
-
-        //     f(6*i);
-            
-        // }, 1000);
-
-        // function f(i)
-        // {
-        //     arm.style.transform='rotate("6*i"deg)';
-        //     console.log(i);
-
-        // }
-
-        // for(let i=1;i<100;i++)
-        // {
-        //     f(6*i);
-        // }
-
-    
-        // let i;
-        // for(i=1;i<100;i++)
-        // {
-        //     arm.style.transform='rotate(6*ideg)';
-
-
-        // }
     </script>
 </body>
 </html>
